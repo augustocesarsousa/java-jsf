@@ -4,11 +4,11 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>jsf001-primeiroJsf</groupId>
-  <artifactId>jsf001-primeiroJsf</artifactId>
+  <groupId>jsf002-expressionLanguage</groupId>
+  <artifactId>jsf002-expressionLanguage</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
-  <name>jsf001-primeiroJsf</name>
+  <name>jsf002-expressionLanguage</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
