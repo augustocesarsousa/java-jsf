@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>ID dos componentes</title>
+	<script type="text/javascript">
+		function testeID() {
+			document.getElementById('formTest:inputTest').value = 'Testando ID dos componentes!';
+		}
+	</script>
+</h:head>
+<h:body>
+	<h:form id="formTest">
+		<h1>Curso JSF - ID dos componentes</h1>
+		<h:inputText id="inputTest"/>
+		<h:commandButton value="Teste ID" onclick="testeID()"/>
+	</h:form>
+</h:body>
+</html>
