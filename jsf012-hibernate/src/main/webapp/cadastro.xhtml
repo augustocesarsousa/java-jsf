@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Hibernate - cadastro</title>
+</h:head>
+<h:body>
+	<h:form id="formCadastro">
+		<h1>Curso JSF - Hibernate Cadastro</h1>
+		<div>
+			<h:outputLabel for="inputNome" value="Nome:"/>
+			<h:inputText id="inputNome" name="inputNome" value="#{usuarioBean.usuario.nome}"/>
+		</div>
+		<div>
+			<h:outputLabel for="inputSobrenome" value="Sobrenome:"/>
+			<h:inputText id="inputSobrenome" name="inputSobrenome" value="#{usuarioBean.usuario.sobrenome}"/>
+		</div>
+		<div>
+			<h:outputLabel for="inputIdade" value="Idade:"/>
+			<h:inputText id="inputIdade" name="inputIdade" value="#{usuarioBean.usuario.idade}"/>
+		</div>
+		<div>
+			<h:outputLabel for="inputData" value="Nascimento:"/>
+			<h:inputText id="inputData" name="inputData" value="#{usuarioBean.usuario.dataNascimento}">
+				<f:convertDateTime type="date" pattern="dd/MM/yyyy" />
+			</h:inputText>
+		</div>
+		<h:commandButton value="Salvar" action="#{usuarioBean.save}"/>
+	</h:form>
+</h:body>
+</html>
