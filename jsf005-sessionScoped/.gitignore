@@ -28,3 +28,4 @@ local.properties
 *.launch
 /build/
 /bin/
+/target/
