@@ -12,7 +12,7 @@
 <h:body>
 	<h:form id="form" >
 		<h1>Curso JSF - Hibernate</h1>
-		<h:commandLink value="Cadastrar" action="cadastro?faces-redirect=true"/>
+		<h:commandLink value="Cadastrar" action="#{usuarioBean.redirectCadastro}"/>
 		<br/>
 		<br/>
 		<h:dataTable value="#{usuarioBean.usuarios}" var="u">

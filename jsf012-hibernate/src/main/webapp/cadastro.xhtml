@@ -9,33 +9,36 @@
 <h:body>
 	<h:form id="formCadastro" action="#{usuarioBean.save}">
 		<h1>Curso JSF - Hibernate</h1>
-		<div>
+		<h:panelGrid columns="2">
 			<h:outputLabel for="inputId" value="Id: "/>
 			<h:inputText id="inputId" name="inputId" value="#{usuarioBean.usuario.id}" readonly="true"/>
-		</div>
-		<div>
+		
+		
 			<h:outputLabel for="inputNome" value="Nome: "/>
 			<h:inputText id="inputNome" name="inputNome" value="#{usuarioBean.usuario.nome}"/>
-		</div>
-		<div>
+		
+		
 			<h:outputLabel for="inputSobrenome" value="Sobrenome: "/>
 			<h:inputText id="inputSobrenome" name="inputSobrenome" value="#{usuarioBean.usuario.sobrenome}"/>
-		</div>
-		<div>
+		
+		
 			<h:outputLabel for="inputEmail" value="Email: "/>
 			<h:inputText id="inputEmail" name="inputEmail" value="#{usuarioBean.usuario.email}"/>
-		</div>
-		<div>
+		
+		
 			<h:outputLabel for="inputTelefone" value="Telefone: "/>
 			<h:inputText id="inputTelefone" name="inputTelefone" value="#{usuarioBean.usuario.telefone}"/>
-		</div>
-		<div>
+		
+		
 			<h:outputLabel for="inputData" value="Nascimento: "/>
 			<h:inputText id="inputData" name="inputData" value="#{usuarioBean.usuario.dataNascimento}">
 				<f:convertDateTime type="date" pattern="dd/MM/yyyy" />
 			</h:inputText>
-		</div>
-		<h:commandButton value="Salvar" action="#{usuarioBean.save}"/>
+		</h:panelGrid>
+		<h:panelGroup>
+			<h:commandButton value="Salvar" action="#{usuarioBean.save}"/>
+			<h:commandButton value="Voltar" action="#{usuarioBean.redirectIndex}"/>
+		</h:panelGroup>
 	</h:form>
 </h:body>
 </html>

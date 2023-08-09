@@ -35,7 +35,7 @@ public class UsuarioBean {
 
 	public String save() {
 		genericDAO.update(usuario);
-		setUsuario(null);
+		usuario = new Usuario();
 		return "index?faces-redirect=true";
 	}
 	
@@ -45,11 +45,16 @@ public class UsuarioBean {
 	
 	public String delete() {
 		genericDAO.delete(Usuario.class, usuario.getId());
-		setUsuario(null);
+		usuario = new Usuario();
 		return "index?faces-redirect=true";
 	}
 	
 	public String redirectCadastro() {
 		return "cadastro?faces-redirect=true";
+	}
+	
+	public String redirectIndex() {
+		usuario = new Usuario();
+		return "index?faces-redirect=true";
 	}
 }
