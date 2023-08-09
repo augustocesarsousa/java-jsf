@@ -33,4 +33,16 @@ public class GenericDAO<E> {
 		
 		return result;
 	}
+
+	public E update(E entity) {
+		EntityManager entityManager = JPAUtil.getEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		
+		entityTransaction.begin();
+		entity = entityManager.merge(entity);
+		entityTransaction.commit();
+		entityManager.close();
+		
+		return entity;
+	}
 }

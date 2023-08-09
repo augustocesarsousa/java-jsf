@@ -47,4 +47,23 @@ public class GenericDAOTest {
 		
 		Assert.assertTrue(usuarios.size() > 0);
 	}
+
+	@Test
+	public void updateUsuario() throws ParseException {
+		GenericDAO<Usuario> genericDAO = new GenericDAO<>();
+		Usuario usuario = new Usuario();
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+		usuario.setNome("Teste");
+		usuario.setSobrenome("");
+		usuario.setEmail("teste@update.com");
+		usuario.setTelefone("1144448888");
+		usuario.setDataNascimento(simpleDateFormat.parse("01/01/2000"));
+		
+		usuario = genericDAO.save(usuario);	
+		usuario.setSobrenome("Update");
+		usuario = genericDAO.update(usuario);
+		
+		Assert.assertTrue(usuario.getSobrenome().equalsIgnoreCase("Update"));
+	}
 }

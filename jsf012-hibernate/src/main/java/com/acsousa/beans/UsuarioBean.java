@@ -34,8 +34,8 @@ public class UsuarioBean {
 	}
 
 	public String save() {
-		genericDAO.save(usuario);
-		return "index";
+		genericDAO.update(usuario);
+		return "index?faces-redirect=true";
 	}
 	
 	public void findAll() {
