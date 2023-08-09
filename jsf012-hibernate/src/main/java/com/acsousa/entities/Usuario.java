@@ -1,6 +1,7 @@
 package com.acsousa.entities;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Objects;
 
@@ -27,7 +28,8 @@ public class Usuario implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date dataNascimento;
 	
-	private char sexo;
+	private Character sexo;
+	private String[] tecnologis;
 
 	public Usuario() {
 	}
@@ -80,18 +82,27 @@ public class Usuario implements Serializable {
 		this.dataNascimento = dataNascimento;
 	}
 
-	public char getSexo() {
+	public Character getSexo() {
 		return sexo;
 	}
 
-	public void setSexo(char sexo) {
+	public void setSexo(Character sexo) {
 		this.sexo = sexo;
+	}
+
+	public String[] getTecnologis() {
+		return tecnologis;
+	}
+
+	public void setTecnologis(String[] tecnologis) {
+		this.tecnologis = tecnologis;
 	}
 
 	@Override
 	public String toString() {
 		return "Usuario [id=" + id + ", nome=" + nome + ", sobrenome=" + sobrenome + ", email=" + email + ", telefone="
-				+ telefone + ", dataNascimento=" + dataNascimento + ", sexo=" + sexo + "]";
+				+ telefone + ", dataNascimento=" + dataNascimento + ", sexo=" + sexo + ", tecnologis="
+				+ Arrays.toString(tecnologis) + "]";
 	}
 
 	@Override
