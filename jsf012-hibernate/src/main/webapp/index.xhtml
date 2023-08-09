@@ -41,6 +41,11 @@
 					<f:setPropertyActionListener value="#{u}" target="#{usuarioBean.usuario}"/>
 				</h:commandLink>
 			</h:column>
+			<h:column>
+				<h:commandLink value="Deletar" action="#{usuarioBean.delete}">
+					<f:setPropertyActionListener value="#{u}" target="#{usuarioBean.usuario}"/>
+				</h:commandLink>
+			</h:column>
 		</h:dataTable>
 	</h:form>
 </h:body>

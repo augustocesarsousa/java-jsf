@@ -4,9 +4,11 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.NoResultException;
 
 import com.acsousa.utils.JPAUtil;
 
+@SuppressWarnings("unchecked")
 public class GenericDAO<E> {
 
 	public E save(E entity) {
@@ -33,6 +35,24 @@ public class GenericDAO<E> {
 		
 		return result;
 	}
+	
+	public E findById(Class<E> entity, Long id) {
+		EntityManager entityManager = JPAUtil.getEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		E result = null;
+
+		entityTransaction.begin();
+		try {
+			result = (E) entityManager.createQuery("from " + entity.getName() + " where id = " + id).getSingleResult();			
+		} catch (NoResultException e) {
+			return null;
+		} finally {
+			entityTransaction.commit();
+			entityManager.close();
+		}		
+		
+		return result;
+	}
 
 	public E update(E entity) {
 		EntityManager entityManager = JPAUtil.getEntityManager();
@@ -44,5 +64,15 @@ public class GenericDAO<E> {
 		entityManager.close();
 		
 		return entity;
+	}
+	
+	public void delete(Class<E> entity, Long id) {
+		EntityManager entityManager = JPAUtil.getEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		
+		entityTransaction.begin();
+		entityManager.createQuery("delete from " + entity.getName() + " where id = " + id).executeUpdate();
+		entityTransaction.commit();
+		entityManager.close();		
 	}
 }

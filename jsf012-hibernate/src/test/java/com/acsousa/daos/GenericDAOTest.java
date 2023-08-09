@@ -14,7 +14,7 @@ import junit.framework.Assert;
 public class GenericDAOTest {
 
 	@Test
-	public void salvarNovoUsuario() throws ParseException {
+	public void deveSalvarNovoUsuario() throws ParseException {
 		GenericDAO<Usuario> genericDAO = new GenericDAO<>();
 		Usuario usuario = new Usuario();
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
@@ -30,7 +30,7 @@ public class GenericDAOTest {
 	}
 	
 	@Test
-	public void consultarTodosUsuarios() throws ParseException {
+	public void deveConsultarTodosUsuarios() throws ParseException {
 		GenericDAO<Usuario> genericDAO = new GenericDAO<>();
 		Usuario usuario = new Usuario();
 		List<Usuario> usuarios = new ArrayList<>();
@@ -47,9 +47,36 @@ public class GenericDAOTest {
 		
 		Assert.assertTrue(usuarios.size() > 0);
 	}
+	
+	@Test
+	public void deveConsultaUsuarioPorIdQuandoUsuarioExiste() throws ParseException {
+		GenericDAO<Usuario> genericDAO = new GenericDAO<>();
+		Usuario usuario = new Usuario();
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+		usuario.setNome("Teste");
+		usuario.setSobrenome("ConsultarPorId");
+		usuario.setEmail("teste@consultaporid.com");
+		usuario.setTelefone("1144448888");
+		usuario.setDataNascimento(simpleDateFormat.parse("01/01/2000"));
+		
+		usuario = genericDAO.save(usuario);
+		usuario = genericDAO.findById(Usuario.class, usuario.getId());
+		
+		Assert.assertTrue(usuario.getSobrenome().equalsIgnoreCase("ConsultarPorId"));
+	}
+	
+	@Test
+	public void deveRetornarNullQuandoUsuarioNaoExiste() throws ParseException {
+		GenericDAO<Usuario> genericDAO = new GenericDAO<>();
+		Usuario usuario = new Usuario();
+		usuario = genericDAO.findById(Usuario.class, Long.MAX_VALUE);
+		
+		Assert.assertTrue(usuario == null);
+	}
 
 	@Test
-	public void updateUsuario() throws ParseException {
+	public void deveAtualizarUsuario() throws ParseException {
 		GenericDAO<Usuario> genericDAO = new GenericDAO<>();
 		Usuario usuario = new Usuario();
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
@@ -65,5 +92,24 @@ public class GenericDAOTest {
 		usuario = genericDAO.update(usuario);
 		
 		Assert.assertTrue(usuario.getSobrenome().equalsIgnoreCase("Update"));
+	}
+	
+	@Test
+	public void deveDeletarUsuario() throws ParseException {
+		GenericDAO<Usuario> genericDAO = new GenericDAO<>();
+		Usuario usuario = new Usuario();
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+		usuario.setNome("Teste");
+		usuario.setSobrenome("Delete");
+		usuario.setEmail("teste@delete.com");
+		usuario.setTelefone("1144448888");
+		usuario.setDataNascimento(simpleDateFormat.parse("01/01/2000"));
+		
+		usuario = genericDAO.save(usuario);
+		genericDAO.delete(Usuario.class, usuario.getId());
+		usuario = genericDAO.findById(Usuario.class, usuario.getId());
+		
+		Assert.assertTrue(usuario == null);
 	}
 }
