@@ -19,6 +19,7 @@ public class GenericDAOTest {
 		Usuario usuario = new Usuario();
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
+		usuario.setAtivo(true);
 		usuario.setNome("Teste");
 		usuario.setSobrenome("Salvar");
 		usuario.setEmail("teste@salvar.com");
@@ -37,6 +38,7 @@ public class GenericDAOTest {
 		List<Usuario> usuarios = new ArrayList<>();
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
+		usuario.setAtivo(true);
 		usuario.setNome("Teste");
 		usuario.setSobrenome("ConsultarTodos");
 		usuario.setEmail("teste@consultartodos.com");
@@ -56,6 +58,7 @@ public class GenericDAOTest {
 		Usuario usuario = new Usuario();
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
+		usuario.setAtivo(true);
 		usuario.setNome("Teste");
 		usuario.setSobrenome("ConsultarPorId");
 		usuario.setEmail("teste@consultaporid.com");
@@ -84,6 +87,7 @@ public class GenericDAOTest {
 		Usuario usuario = new Usuario();
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
+		usuario.setAtivo(true);
 		usuario.setNome("Teste");
 		usuario.setSobrenome("");
 		usuario.setEmail("teste@update.com");
@@ -104,6 +108,7 @@ public class GenericDAOTest {
 		Usuario usuario = new Usuario();
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
+		usuario.setAtivo(true);
 		usuario.setNome("Teste");
 		usuario.setSobrenome("Delete");
 		usuario.setEmail("teste@delete.com");

@@ -30,6 +30,7 @@ public class Usuario implements Serializable {
 	
 	private Character sexo;
 	private String[] tecnologis;
+	private Boolean ativo;
 
 	public Usuario() {
 	}
@@ -98,11 +99,19 @@ public class Usuario implements Serializable {
 		this.tecnologis = tecnologis;
 	}
 
+	public Boolean getAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(Boolean ativo) {
+		this.ativo = ativo;
+	}
+
 	@Override
 	public String toString() {
 		return "Usuario [id=" + id + ", nome=" + nome + ", sobrenome=" + sobrenome + ", email=" + email + ", telefone="
 				+ telefone + ", dataNascimento=" + dataNascimento + ", sexo=" + sexo + ", tecnologis="
-				+ Arrays.toString(tecnologis) + "]";
+				+ Arrays.toString(tecnologis) + ", ativo=" + ativo + "]";
 	}
 
 	@Override

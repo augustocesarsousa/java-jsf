@@ -10,6 +10,9 @@
 	<h:form id="formCadastro" action="#{usuarioBean.save}">
 		<h1>Curso JSF - Hibernate</h1>
 		<h:panelGrid columns="2">
+			<h:outputLabel for="inputAtivo" value="Id: "/>
+			<h:selectBooleanCheckbox value="#{usuarioBean.usuario.ativo}"/>
+			
 			<h:outputLabel for="inputId" value="Id: "/>
 			<h:inputText id="inputId" name="inputId" value="#{usuarioBean.usuario.id}" readonly="true"/>
 		
@@ -36,8 +39,8 @@
 			</h:inputText>
 			
 			<h:outputLabel for="selectSexo" value="Sexo: "/>
-			<h:selectOneMenu id="selectSexo" value="#{usuarioBean.usuario.sexo}" required="true">
-				<f:selectItem itemValue="N" itemLabel="--Selecione--" noSelectionOption="true"/>
+			<h:selectOneMenu id="selectSexo" value="#{usuarioBean.usuario.sexo}">
+				<f:selectItem itemValue="N" itemLabel="--Selecione--"/>
 				<f:selectItem itemValue="F" itemLabel="Feminino"/>
 				<f:selectItem itemValue="M" itemLabel="Masculino"/>
 			</h:selectOneMenu>
