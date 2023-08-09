@@ -15,33 +15,55 @@
 		<h:commandLink value="Cadastrar" action="#{usuarioBean.redirectCadastro}"/>
 		<br/>
 		<br/>
-		<h:dataTable value="#{usuarioBean.usuarios}" var="u">
+		<h:dataTable value="#{usuarioBean.usuarios}" var="u" border="1" cellpadding="5">
+			<f:facet name="header">
+				Lista de usuários
+			</f:facet>
 			<h:column>
+				<f:facet name="header">
+					Id
+				</f:facet>
 				<h:outputText value="#{u.id}"/>
 			</h:column>
 			<h:column>
+				<f:facet name="header">
+					Nome
+				</f:facet>
 				<h:outputText value="#{u.nome}"/>
 			</h:column>
 			<h:column>
+				<f:facet name="header">
+					Sobrenome
+				</f:facet>
 				<h:outputText value="#{u.sobrenome}"/>
 			</h:column>
 			<h:column>
+				<f:facet name="header">
+					Email
+				</f:facet>
 				<h:outputText value="#{u.email}"/>
 			</h:column>
 			<h:column>
+				<f:facet name="header">
+					Telefone
+				</f:facet>
 				<h:outputText value="#{u.telefone}"/>
 			</h:column>
 			<h:column>
+				<f:facet name="header">
+					Nascimento
+				</f:facet>
 				<h:outputText value="#{u.dataNascimento}">
 					<f:convertDateTime type="date" pattern="dd/MM/yyyy" />
 				</h:outputText>
 			</h:column>
 			<h:column>
-				<h:commandLink value="Editar" action="#{usuarioBean.redirectCadastro}">
+				<f:facet name="header">
+					Ação
+				</f:facet>
+				<h:commandLink value="Editar" action="#{usuarioBean.redirectCadastro}" style="margin-right:5px;">
 					<f:setPropertyActionListener value="#{u}" target="#{usuarioBean.usuario}"/>
 				</h:commandLink>
-			</h:column>
-			<h:column>
 				<h:commandLink value="Deletar" action="#{usuarioBean.delete}">
 					<f:setPropertyActionListener value="#{u}" target="#{usuarioBean.usuario}"/>
 				</h:commandLink>
