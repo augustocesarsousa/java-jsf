@@ -59,12 +59,19 @@
 			</h:column>
 			<h:column>
 				<f:facet name="header">
-					Ação
+					Editar
 				</f:facet>
-				<h:commandLink value="Editar" action="#{usuarioBean.redirectCadastro}" style="margin-right:5px;">
+				<h:commandLink action="#{usuarioBean.redirectCadastro}">
+					<h:graphicImage height="26" width="26" library="img" name="pen-to-square-solid.svg" title="Editar" alt="botão editar"/>
 					<f:setPropertyActionListener value="#{u}" target="#{usuarioBean.usuario}"/>
 				</h:commandLink>
-				<h:commandLink value="Deletar" action="#{usuarioBean.delete}">
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					Deletar
+				</f:facet>
+				<h:commandLink action="#{usuarioBean.delete}">
+					<h:graphicImage height="26" width="26" library="img" name="trash-solid.svg" title="Deletar" alt="botão deletar"/>
 					<f:setPropertyActionListener value="#{u}" target="#{usuarioBean.usuario}"/>
 				</h:commandLink>
 			</h:column>
