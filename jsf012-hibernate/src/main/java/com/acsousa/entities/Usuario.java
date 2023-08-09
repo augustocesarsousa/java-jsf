@@ -21,7 +21,8 @@ public class Usuario implements Serializable {
 	private Long id;
 	private String nome;
 	private String sobrenome;
-	private Integer idade;
+	private String email;
+	private String telefone;
 	
 	@Temporal(TemporalType.DATE)
 	private Date dataNascimento;
@@ -53,12 +54,20 @@ public class Usuario implements Serializable {
 		this.sobrenome = sobrenome;
 	}
 
-	public Integer getIdade() {
-		return idade;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setIdade(Integer idade) {
-		this.idade = idade;
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
 	}
 
 	public Date getDataNascimento() {
@@ -71,8 +80,8 @@ public class Usuario implements Serializable {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", nome=" + nome + ", sobrenome=" + sobrenome + ", idade=" + idade
-				+ ", dataNascimento=" + dataNascimento + "]";
+		return "Usuario [id=" + id + ", nome=" + nome + ", sobrenome=" + sobrenome + ", email=" + email + ", telefone="
+				+ telefone + ", dataNascimento=" + dataNascimento + "]";
 	}
 
 	@Override

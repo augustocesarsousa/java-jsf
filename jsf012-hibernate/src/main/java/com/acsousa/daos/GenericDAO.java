@@ -1,5 +1,7 @@
 package com.acsousa.daos;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
@@ -18,5 +20,17 @@ public class GenericDAO<E> {
 		entityManager.close();
 		
 		return entity;
+	}
+	
+	public List<E> findAll(Class<E> entity) {
+		EntityManager entityManager = JPAUtil.getEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+
+		entityTransaction.begin();
+		List<E> result = entityManager.createQuery("from " + entity.getName()).getResultList();
+		entityTransaction.commit();
+		entityManager.close();		
+		
+		return result;
 	}
 }
