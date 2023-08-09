@@ -26,6 +26,8 @@ public class Usuario implements Serializable {
 	
 	@Temporal(TemporalType.DATE)
 	private Date dataNascimento;
+	
+	private char sexo;
 
 	public Usuario() {
 	}
@@ -78,10 +80,18 @@ public class Usuario implements Serializable {
 		this.dataNascimento = dataNascimento;
 	}
 
+	public char getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(char sexo) {
+		this.sexo = sexo;
+	}
+
 	@Override
 	public String toString() {
 		return "Usuario [id=" + id + ", nome=" + nome + ", sobrenome=" + sobrenome + ", email=" + email + ", telefone="
-				+ telefone + ", dataNascimento=" + dataNascimento + "]";
+				+ telefone + ", dataNascimento=" + dataNascimento + ", sexo=" + sexo + "]";
 	}
 
 	@Override

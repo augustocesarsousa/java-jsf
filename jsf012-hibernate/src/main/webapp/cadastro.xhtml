@@ -34,6 +34,13 @@
 			<h:inputText id="inputData" name="inputData" value="#{usuarioBean.usuario.dataNascimento}">
 				<f:convertDateTime type="date" pattern="dd/MM/yyyy" />
 			</h:inputText>
+			
+			<h:outputLabel for="selectSexo" value="Sexo: "/>
+			<h:selectOneMenu id="selectSexo" value="#{usuarioBean.usuario.sexo}" required="true">
+				<f:selectItem itemValue="N" itemLabel="--Selecione--" noSelectionOption="true"/>
+				<f:selectItem itemValue="F" itemLabel="Feminino"/>
+				<f:selectItem itemValue="M" itemLabel="Masculino"/>
+			</h:selectOneMenu>
 		</h:panelGrid>
 		<h:panelGroup>
 			<h:commandButton value="Salvar" action="#{usuarioBean.save}"/>
