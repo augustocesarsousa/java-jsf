@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.acsousa.entities.Usuario;
 import com.acsousa.utils.JPAUtil;
 
 @WebFilter(urlPatterns = {"/*"})
@@ -26,15 +27,16 @@ public class AuthenticationFilter implements Filter{
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpSession session = req.getSession();
-		String usuarioLogado = (String) session.getAttribute("usuarioLogado");
+		Usuario usuarioLogado = (Usuario) session.getAttribute("usuarioLogado");
+		String url = req.getServletPath();
 		
-		if(usuarioLogado == null || usuarioLogado.isEmpty()) {
+		if(!url.equalsIgnoreCase("login.xhtml") && usuarioLogado == null) {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("login.xhtml");
 			dispatcher.forward(request, response);
 			return;
+		} else {			
+			chain.doFilter(request, response);			
 		}
-		
-		chain.doFilter(request, response);
 	}
 
 	@Override

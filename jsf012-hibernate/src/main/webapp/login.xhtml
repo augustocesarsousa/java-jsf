@@ -10,6 +10,15 @@
 	<h:form id="formLogin" >
 		<h1>Curso JSF - Hibernate</h1>
 		<h2>Login</h2>
+		
+		<h:panelGrid columns="2">		
+			<h:outputLabel for="inputEmail" value="Email: "/>
+			<h:inputText id="inputEmail" name="inputEmail" value="#{usuarioBean.usuario.email}"/>	
+		
+			<h:outputLabel for="inputSenha" value="Senha: "/>
+			<h:inputSecret id="inputSenha" name="inputSenha" value="#{usuarioBean.usuario.senha}"/>			
+		</h:panelGrid>
+		<h:commandButton value="Entrar" action="#{usuarioBean.login}"/>		
 	</h:form>
 </h:body>
 </html>
