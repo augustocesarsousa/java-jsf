@@ -31,6 +31,8 @@ public class Usuario implements Serializable {
 	private Character sexo;
 	private String[] tecnologis;
 	private Boolean ativo;
+	private String senha;
+	private String perfil;
 
 	public Usuario() {
 	}
@@ -107,11 +109,27 @@ public class Usuario implements Serializable {
 		this.ativo = ativo;
 	}
 
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	public String getPerfil() {
+		return perfil;
+	}
+
+	public void setPerfil(String perfil) {
+		this.perfil = perfil;
+	}
+
 	@Override
 	public String toString() {
 		return "Usuario [id=" + id + ", nome=" + nome + ", sobrenome=" + sobrenome + ", email=" + email + ", telefone="
 				+ telefone + ", dataNascimento=" + dataNascimento + ", sexo=" + sexo + ", tecnologis="
-				+ Arrays.toString(tecnologis) + ", ativo=" + ativo + "]";
+				+ Arrays.toString(tecnologis) + ", ativo=" + ativo + ", perfil=" + perfil + "]";
 	}
 
 	@Override

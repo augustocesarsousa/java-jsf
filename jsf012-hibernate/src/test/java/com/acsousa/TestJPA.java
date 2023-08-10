@@ -2,9 +2,12 @@ package com.acsousa;
 
 import javax.persistence.Persistence;
 
+import org.junit.Test;
+
 public class TestJPA {
 	
-	public static void main(String[] args) {
+	@Test
+	public void testJPA() {
 		Persistence.createEntityManagerFactory("jsf012-hibernate");
 	}
 

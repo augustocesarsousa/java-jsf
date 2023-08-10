@@ -26,6 +26,9 @@ public class GenericDAOTest {
 		usuario.setTelefone("1144448888");
 		usuario.setDataNascimento(simpleDateFormat.parse("01/01/2000"));
 		usuario.setSexo('F');
+		usuario.setSenha("1234");
+		usuario.setPerfil("ADMINISTRADOR");
+		
 		usuario = genericDAO.save(usuario);
 		
 		Assert.assertTrue(usuario.getId() != null);
@@ -45,6 +48,8 @@ public class GenericDAOTest {
 		usuario.setTelefone("1144448888");
 		usuario.setDataNascimento(simpleDateFormat.parse("01/01/2000"));
 		usuario.setSexo('M');
+		usuario.setSenha("1234");
+		usuario.setPerfil("USUARIO");
 		
 		genericDAO.save(usuario);
 		usuarios.addAll(genericDAO.findAll(Usuario.class));
@@ -65,6 +70,8 @@ public class GenericDAOTest {
 		usuario.setTelefone("1144448888");
 		usuario.setDataNascimento(simpleDateFormat.parse("01/01/2000"));
 		usuario.setSexo('F');
+		usuario.setSenha("1234");
+		usuario.setPerfil("ADMINISTRADOR");
 		
 		usuario = genericDAO.save(usuario);
 		usuario = genericDAO.findById(Usuario.class, usuario.getId());
@@ -94,6 +101,8 @@ public class GenericDAOTest {
 		usuario.setTelefone("1144448888");
 		usuario.setDataNascimento(simpleDateFormat.parse("01/01/2000"));
 		usuario.setSexo('M');
+		usuario.setSenha("1234");
+		usuario.setPerfil("USUARIO");
 		
 		usuario = genericDAO.save(usuario);	
 		usuario.setSobrenome("Update");
@@ -115,6 +124,8 @@ public class GenericDAOTest {
 		usuario.setTelefone("1144448888");
 		usuario.setDataNascimento(simpleDateFormat.parse("01/01/2000"));
 		usuario.setSexo('F');
+		usuario.setSenha("1234");
+		usuario.setPerfil("ADMINISTRADOR");
 		
 		usuario = genericDAO.save(usuario);
 		genericDAO.delete(Usuario.class, usuario.getId());

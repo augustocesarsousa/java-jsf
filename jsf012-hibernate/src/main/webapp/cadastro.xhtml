@@ -10,33 +10,37 @@
 	<h:form id="formCadastro" action="#{usuarioBean.save}">
 		<h1>Curso JSF - Hibernate</h1>
 		<h:panelGrid columns="2">
-			<h:outputLabel for="inputAtivo" value="Id: "/>
+			<h:outputLabel for="inputAtivo" value="Ativo: "/>
 			<h:selectBooleanCheckbox value="#{usuarioBean.usuario.ativo}"/>
 			
 			<h:outputLabel for="inputId" value="Id: "/>
 			<h:inputText id="inputId" name="inputId" value="#{usuarioBean.usuario.id}" readonly="true"/>
 		
+			<h:outputLabel for="inputSenha" value="Senha: "/>
+			<h:inputSecret id="inputSenha" name="inputSenha" value="#{usuarioBean.usuario.senha}"/>			
 		
 			<h:outputLabel for="inputNome" value="Nome: "/>
-			<h:inputText id="inputNome" name="inputNome" value="#{usuarioBean.usuario.nome}"/>
-		
+			<h:inputText id="inputNome" name="inputNome" value="#{usuarioBean.usuario.nome}"/>		
 		
 			<h:outputLabel for="inputSobrenome" value="Sobrenome: "/>
-			<h:inputText id="inputSobrenome" name="inputSobrenome" value="#{usuarioBean.usuario.sobrenome}"/>
-		
+			<h:inputText id="inputSobrenome" name="inputSobrenome" value="#{usuarioBean.usuario.sobrenome}"/>		
 		
 			<h:outputLabel for="inputEmail" value="Email: "/>
-			<h:inputText id="inputEmail" name="inputEmail" value="#{usuarioBean.usuario.email}"/>
-		
+			<h:inputText id="inputEmail" name="inputEmail" value="#{usuarioBean.usuario.email}"/>		
 		
 			<h:outputLabel for="inputTelefone" value="Telefone: "/>
-			<h:inputText id="inputTelefone" name="inputTelefone" value="#{usuarioBean.usuario.telefone}"/>
-		
+			<h:inputText id="inputTelefone" name="inputTelefone" value="#{usuarioBean.usuario.telefone}"/>	
 		
 			<h:outputLabel for="inputData" value="Nascimento: "/>
 			<h:inputText id="inputData" name="inputData" value="#{usuarioBean.usuario.dataNascimento}">
 				<f:convertDateTime type="date" pattern="dd/MM/yyyy" />
 			</h:inputText>
+			
+			<h:outputLabel for="selectPerfil" value="Perfil: "/>
+			<h:selectOneMenu id="selectPerfil" value="#{usuarioBean.usuario.perfil}">
+				<f:selectItem itemValue="USUARIO" itemLabel="Usuario"/>
+				<f:selectItem itemValue="ADMINISTRADOR" itemLabel="Administrador"/>
+			</h:selectOneMenu>
 			
 			<h:outputLabel for="selectSexo" value="Sexo: "/>
 			<h:selectOneMenu id="selectSexo" value="#{usuarioBean.usuario.sexo}">
@@ -58,7 +62,7 @@
 				<f:selectItem itemValue="HTML"/>
 				<f:selectItem itemValue="CSS"/>
 				<f:selectItem itemValue="JavaScript"/>
-			</h:selectManyMenu>
+			</h:selectManyMenu>		
 		</h:panelGrid>
 		<h:panelGroup>
 			<h:commandButton value="Salvar" action="#{usuarioBean.save}"/>
