@@ -20,6 +20,8 @@ public class UsuarioBean {
 	private GenericDAO<Usuario> genericDAO = new GenericDAO<>();	
 	private LoginDAO loginDAO = new LoginDAO();
 	private List<Usuario> usuarios = new ArrayList<Usuario>();
+	private FacesContext context = FacesContext.getCurrentInstance();
+	private ExternalContext externalContext = context.getExternalContext();
 	private String msgLogin;
 	
 	public Usuario getUsuario() {
@@ -50,14 +52,19 @@ public class UsuarioBean {
 		Usuario usuarioLogado = loginDAO.login(usuario.getEmail(), usuario.getSenha());
 		
 		if(usuarioLogado != null) {
-			FacesContext context = FacesContext.getCurrentInstance();
-			ExternalContext externalContext = context.getExternalContext();
 			externalContext.getSessionMap().put("usuarioLogado", usuarioLogado);
 			findAll();
+			setMsgLogin("");
 			return "index.xhtml";
 		}
 		
+		setMsgLogin("Usuário ou senha inválido!");		
 		return "login.xhtml";
+	}
+	
+	public Boolean permiteAcesso(String perfil) {
+		Usuario usuarioLogado = (Usuario) externalContext.getSessionMap().get("usuarioLogado");
+		return usuarioLogado.getPerfil().equalsIgnoreCase(perfil);
 	}
 
 	public String save() {

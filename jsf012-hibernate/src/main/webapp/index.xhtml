@@ -66,7 +66,7 @@
 					<f:setPropertyActionListener value="#{u}" target="#{usuarioBean.usuario}"/>
 				</h:commandLink>
 			</h:column>
-			<h:column>
+			<h:column rendered="#{usuarioBean.permiteAcesso('ADMINISTRADOR')}">
 				<f:facet name="header">
 					Deletar
 				</f:facet>
