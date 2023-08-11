@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" 
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
 	<f:metadata>
 	    <f:viewAction action="#{usuarioBean.findAll}" />
@@ -10,12 +11,8 @@
 	<title>Hibernate</title>
 </h:head>
 <h:body>
+	<ui:include src="/menu.xhtml"/>	
 	<h:form id="form" >
-		<h1>Curso JSF - Hibernate</h1>
-		<h:commandLink value="Cadastrar" action="#{usuarioBean.redirectCadastro}" style="margin-right:10px;"/>
-		<h:commandLink value="Sair" action="#{usuarioBean.logout}"/>
-		<br/>
-		<br/>
 		<h:messages infoStyle="color:blue"/>
 		<h:dataTable value="#{usuarioBean.usuarios}" var="u" border="1" cellpadding="5">
 			<f:facet name="header">
