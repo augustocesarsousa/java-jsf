@@ -43,11 +43,10 @@
 			</h:selectOneMenu>
 			
 			<h:outputLabel for="selectSexo" value="Sexo: "/>
-			<h:selectOneMenu id="selectSexo" value="#{usuarioBean.usuario.sexo}">
-				<f:selectItem itemValue="N" itemLabel="--Selecione--"/>
+			<h:selectOneRadio id="selectSexo" value="#{usuarioBean.usuario.sexo}">
 				<f:selectItem itemValue="F" itemLabel="Feminino"/>
-				<f:selectItem itemValue="M" itemLabel="Masculino"/>
-			</h:selectOneMenu>
+				<f:selectItem itemValue="M" itemLabel="Masculino"/>			
+			</h:selectOneRadio>
 			
 			<h:outputLabel for="selectTecnologias" value="Tecnologias: "/>
 			<h:selectManyMenu id="selectTecnologias" name="selectTecnologias" style="height:150px;"
