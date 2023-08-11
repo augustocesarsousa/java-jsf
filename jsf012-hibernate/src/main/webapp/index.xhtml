@@ -12,9 +12,11 @@
 <h:body>
 	<h:form id="form" >
 		<h1>Curso JSF - Hibernate</h1>
-		<h:commandLink value="Cadastrar" action="#{usuarioBean.redirectCadastro}"/>
+		<h:commandLink value="Cadastrar" action="#{usuarioBean.redirectCadastro}" style="margin-right:10px;"/>
+		<h:commandLink value="Sair" action="#{usuarioBean.logout}"/>
 		<br/>
 		<br/>
+		<h:messages infoStyle="color:blue"/>
 		<h:dataTable value="#{usuarioBean.usuarios}" var="u" border="1" cellpadding="5">
 			<f:facet name="header">
 				Lista de usuários

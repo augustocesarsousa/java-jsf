@@ -3,6 +3,7 @@ package com.acsousa.beans;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
@@ -22,7 +23,6 @@ public class UsuarioBean {
 	private List<Usuario> usuarios = new ArrayList<Usuario>();
 	private FacesContext context = FacesContext.getCurrentInstance();
 	private ExternalContext externalContext = context.getExternalContext();
-	private String msgLogin;
 	
 	public Usuario getUsuario() {
 		return usuario;
@@ -40,26 +40,22 @@ public class UsuarioBean {
 		this.usuarios = usuarios;
 	}
 	
-	public String getMsgLogin() {
-		return msgLogin;
-	}
-	
-	public void setMsgLogin(String msgLogin) {
-		this.msgLogin = msgLogin;
-	}
-	
 	public String login() {
 		Usuario usuarioLogado = loginDAO.login(usuario.getEmail(), usuario.getSenha());
 		
 		if(usuarioLogado != null) {
 			externalContext.getSessionMap().put("usuarioLogado", usuarioLogado);
 			findAll();
-			setMsgLogin("");
 			return "index.xhtml";
 		}
-		
-		setMsgLogin("Usuário ou senha inválido!");		
+			
+		mostrarMsg("Usuário ou senha inválido!");	
 		return "login.xhtml";
+	}
+	
+	public String logout() {
+		externalContext.getSessionMap().remove("usuarioLogado");
+		return "login?faces-redirect=true";
 	}
 	
 	public Boolean permiteAcesso(String perfil) {
@@ -70,6 +66,7 @@ public class UsuarioBean {
 	public String save() {
 		genericDAO.update(usuario);
 		usuario = new Usuario();
+		mostrarMsg("Usuário salvo com sucesso!");
 		return "index?faces-redirect=true";
 	}
 	
@@ -80,6 +77,7 @@ public class UsuarioBean {
 	public String delete() {
 		genericDAO.delete(Usuario.class, usuario.getId());
 		usuario = new Usuario();
+		mostrarMsg("Usuário deletado com sucesso!");
 		return "index?faces-redirect=true";
 	}
 	
@@ -90,5 +88,11 @@ public class UsuarioBean {
 	public String redirectIndex() {
 		usuario = new Usuario();
 		return "index?faces-redirect=true";
+	}
+	
+	private void mostrarMsg(String msg) {
+		FacesContext context = FacesContext.getCurrentInstance();
+		FacesMessage message = new FacesMessage(msg);
+		context.addMessage(null, message);
 	}
 }

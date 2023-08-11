@@ -9,9 +9,10 @@
 <h:body>
 	<h:form id="formCadastro" action="#{usuarioBean.save}">
 		<h1>Curso JSF - Hibernate</h1>
+		<h:messages infoStyle="color:blue"/>
 		<h:panelGrid columns="2">
 			<h:outputLabel for="inputAtivo" value="Ativo: "/>
-			<h:selectBooleanCheckbox value="#{usuarioBean.usuario.ativo}"/>
+			<h:selectBooleanCheckbox id="inputAtivo" value="#{usuarioBean.usuario.ativo}"/>
 			
 			<h:outputLabel for="inputId" value="Id: "/>
 			<h:inputText id="inputId" name="inputId" value="#{usuarioBean.usuario.id}" readonly="true"/>

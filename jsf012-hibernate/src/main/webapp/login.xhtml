@@ -10,7 +10,7 @@
 	<h:form id="formLogin" >
 		<h1>Curso JSF - Hibernate</h1>
 		<h2>Login</h2>
-		<h:outputText id="outputMsg" value="#{usuarioBean.msgLogin}" style="color:red;"/>
+		<h:messages infoStyle="color:blue"/>
 		<h:panelGrid columns="2">		
 			<h:outputLabel for="inputEmail" value="Email: "/>
 			<h:inputText id="inputEmail" name="inputEmail" value="#{usuarioBean.usuario.email}"/>	
