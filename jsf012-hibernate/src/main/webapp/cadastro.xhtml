@@ -10,7 +10,7 @@
 <h:body>
 	<ui:include src="/menu.xhtml"/>	
 	<h:form id="formCadastro" action="#{usuarioBean.save}">
-		<h:messages infoStyle="color:blue"/>
+		<h:messages infoStyle="color:blue" style="color:red;"/>
 		<h:panelGrid columns="2">
 			<h:outputLabel for="inputAtivo" value="Ativo: "/>
 			<h:selectBooleanCheckbox id="inputAtivo" value="#{usuarioBean.usuario.ativo}"/>
@@ -19,23 +19,38 @@
 			<h:inputText id="inputId" name="inputId" value="#{usuarioBean.usuario.id}" readonly="true"/>
 		
 			<h:outputLabel for="inputSenha" value="Senha: "/>
-			<h:inputSecret id="inputSenha" name="inputSenha" value="#{usuarioBean.usuario.senha}"/>			
+			<h:inputSecret id="inputSenha" name="inputSenha" 
+				value="#{usuarioBean.usuario.senha}" 
+				required="true"
+				requiredMessage="Informa uma senha"/>			
 		
 			<h:outputLabel for="inputNome" value="Nome: "/>
-			<h:inputText id="inputNome" name="inputNome" value="#{usuarioBean.usuario.nome}"/>		
+			<h:inputText id="inputNome" name="inputNome" 
+				value="#{usuarioBean.usuario.nome}" 
+				required="true" 
+				requiredMessage="Nome é obrigatório"
+				validatorMessage="Nome precisa ter entre 4 e 50 dígitos">
+				<f:validateLength minimum="4" maximum="50"/>
+			</h:inputText>		
 		
 			<h:outputLabel for="inputSobrenome" value="Sobrenome: "/>
 			<h:inputText id="inputSobrenome" name="inputSobrenome" value="#{usuarioBean.usuario.sobrenome}"/>		
 		
 			<h:outputLabel for="inputEmail" value="Email: "/>
-			<h:inputText id="inputEmail" name="inputEmail" value="#{usuarioBean.usuario.email}"/>		
+			<h:inputText id="inputEmail" name="inputEmail" 
+				value="#{usuarioBean.usuario.email}" 
+				required="true"
+				requiredMessage="Email é obrigatório"
+				validatorMessage="Email inválido">
+				<f:validateRegex pattern="^(.+)@(.+)$"/>
+			</h:inputText>		
 		
 			<h:outputLabel for="inputTelefone" value="Telefone: "/>
 			<h:inputText id="inputTelefone" name="inputTelefone" value="#{usuarioBean.usuario.telefone}"/>	
 		
 			<h:outputLabel for="inputData" value="Nascimento: "/>
-			<h:inputText id="inputData" name="inputData" value="#{usuarioBean.usuario.dataNascimento}">
-				<f:convertDateTime type="date" pattern="dd/MM/yyyy" />
+			<h:inputText id="inputData" name="inputData" value="#{usuarioBean.usuario.dataNascimento}" converterMessage="Data inválida, exemplo 20/01/2001">
+				<f:convertDateTime type="date" pattern="dd/MM/yyyy" locale="pt_BR" timeZone="GMT-03:00"/>
 			</h:inputText>
 			
 			<h:outputLabel for="selectPerfil" value="Perfil: "/>
