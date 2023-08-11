@@ -29,7 +29,8 @@ public class Usuario implements Serializable {
 	private Date dataNascimento;
 	
 	private Character sexo;
-	private String[] tecnologis;
+	private String[] linguagens;
+	private String[] bancosDados;
 	private Boolean ativo;
 	private String senha;
 	private String perfil;
@@ -93,12 +94,20 @@ public class Usuario implements Serializable {
 		this.sexo = sexo;
 	}
 
-	public String[] getTecnologis() {
-		return tecnologis;
+	public String[] getLinguagens() {
+		return linguagens;
 	}
 
-	public void setTecnologis(String[] tecnologis) {
-		this.tecnologis = tecnologis;
+	public void setLinguagens(String[] tecnologis) {
+		this.linguagens = tecnologis;
+	}
+	
+	public String[] getBancosDados() {
+		return bancosDados;
+	}
+
+	public void setBancosDados(String[] bancosDados) {
+		this.bancosDados = bancosDados;
 	}
 
 	public Boolean getAtivo() {
@@ -129,7 +138,7 @@ public class Usuario implements Serializable {
 	public String toString() {
 		return "Usuario [id=" + id + ", nome=" + nome + ", sobrenome=" + sobrenome + ", email=" + email + ", telefone="
 				+ telefone + ", dataNascimento=" + dataNascimento + ", sexo=" + sexo + ", tecnologis="
-				+ Arrays.toString(tecnologis) + ", ativo=" + ativo + ", perfil=" + perfil + "]";
+				+ Arrays.toString(linguagens) + ", ativo=" + ativo + ", perfil=" + perfil + "]";
 	}
 
 	@Override
