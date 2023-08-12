@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" 
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
 	<title>Hibernate</title>
 </h:head>
@@ -21,12 +22,14 @@
 			<h:outputLabel for="inputSenha" value="Senha: "/>
 			<h:inputSecret id="inputSenha" name="inputSenha" 
 				value="#{usuarioBean.usuario.senha}" 
+				pt:placeholder="Informe sua senha"
 				required="true"
 				requiredMessage="Informa uma senha"/>			
 		
 			<h:outputLabel for="inputNome" value="Nome: "/>
 			<h:inputText id="inputNome" name="inputNome" 
 				value="#{usuarioBean.usuario.nome}" 
+				pt:placeholder="Informe seu nome"
 				required="true" 
 				requiredMessage="Nome é obrigatório"
 				validatorMessage="Nome precisa ter entre 4 e 50 dígitos">
@@ -34,11 +37,14 @@
 			</h:inputText>		
 		
 			<h:outputLabel for="inputSobrenome" value="Sobrenome: "/>
-			<h:inputText id="inputSobrenome" name="inputSobrenome" value="#{usuarioBean.usuario.sobrenome}"/>		
+			<h:inputText id="inputSobrenome" name="inputSobrenome" 
+				value="#{usuarioBean.usuario.sobrenome}"
+				pt:placeholder="Informe seu sobrenome"/>		
 		
 			<h:outputLabel for="inputEmail" value="Email: "/>
 			<h:inputText id="inputEmail" name="inputEmail" 
 				value="#{usuarioBean.usuario.email}" 
+				pt:placeholder="Informe seu email"
 				required="true"
 				requiredMessage="Email é obrigatório"
 				validatorMessage="Email inválido">
@@ -46,10 +52,15 @@
 			</h:inputText>		
 		
 			<h:outputLabel for="inputTelefone" value="Telefone: "/>
-			<h:inputText id="inputTelefone" name="inputTelefone" value="#{usuarioBean.usuario.telefone}"/>	
+			<h:inputText id="inputTelefone" name="inputTelefone" 
+				value="#{usuarioBean.usuario.telefone}"
+				pt:placeholder="Informe seu telefone"/>	
 		
 			<h:outputLabel for="inputData" value="Nascimento: "/>
-			<h:inputText id="inputData" name="inputData" value="#{usuarioBean.usuario.dataNascimento}" converterMessage="Data inválida, exemplo 20/01/2001">
+			<h:inputText id="inputData" name="inputData" 
+				value="#{usuarioBean.usuario.dataNascimento}" 
+				converterMessage="Data inválida, exemplo 20/01/2001"
+				pt:placeholder="Informe sua data de nascimento">
 				<f:convertDateTime type="date" pattern="dd/MM/yyyy" locale="pt_BR" timeZone="GMT-03:00"/>
 			</h:inputText>
 			
