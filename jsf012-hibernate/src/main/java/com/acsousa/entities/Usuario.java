@@ -11,6 +11,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Usuario implements Serializable {
@@ -19,19 +24,29 @@ public class Usuario implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private Long id;	
+	
+	@Size(min = 4, max = 50, message = "Nome precisa ter entre 4 e 50 dígitos")
 	private String nome;
+	
+	@NotNull(message = "Informe o sobrenome")
+	@NotEmpty(message = "Informe o sobrenome")
 	private String sobrenome;
+	
+	@Email(message = "Email inválido")
 	private String email;
 	private String telefone;
 	
 	@Temporal(TemporalType.DATE)
+	@Past(message = "Data inválida")
 	private Date dataNascimento;
 	
 	private Character sexo;
 	private String[] linguagens;
 	private String[] bancosDados;
 	private Boolean ativo;
+	
+	@Size(min = 4, max = 12, message = "A senha deve ter entre 4 e 12 dígitos")
 	private String senha;
 	private String perfil;
 

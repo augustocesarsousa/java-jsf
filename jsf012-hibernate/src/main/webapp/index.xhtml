@@ -60,7 +60,7 @@
 				<f:facet name="header">
 					Editar
 				</f:facet>
-				<h:commandLink action="#{usuarioBean.redirectCadastro}">
+				<h:commandLink action="#{usuarioBean.redirectCadastro}" immediate="true">
 					<h:graphicImage height="26" width="26" library="img" name="pen-to-square-solid.svg" title="Editar" alt="botão editar"/>
 					<f:setPropertyActionListener value="#{u}" target="#{usuarioBean.usuario}"/>
 				</h:commandLink>
@@ -69,7 +69,7 @@
 				<f:facet name="header">
 					Deletar
 				</f:facet>
-				<h:commandLink action="#{usuarioBean.delete}">
+				<h:commandLink action="#{usuarioBean.delete}" immediate="true">
 					<h:graphicImage height="26" width="26" library="img" name="trash-solid.svg" title="Deletar" alt="botão deletar"/>
 					<f:setPropertyActionListener value="#{u}" target="#{usuarioBean.usuario}"/>
 				</h:commandLink>
