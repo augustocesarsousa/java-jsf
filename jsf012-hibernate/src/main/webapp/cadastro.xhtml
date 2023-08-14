@@ -39,7 +39,8 @@
 			<h:outputLabel for="inputSobrenome" value="Sobrenome: "/>
 			<h:inputText id="inputSobrenome" name="inputSobrenome" 
 				value="#{usuarioBean.usuario.sobrenome}"
-				pt:placeholder="Informe seu sobrenome"/>		
+				pt:placeholder="Informe seu sobrenome"
+				valueChangeListener="#{usuarioBean.changeValue}"/>		
 		
 			<h:outputLabel for="inputEmail" value="Email: "/>
 			<h:inputText id="inputEmail" name="inputEmail" 

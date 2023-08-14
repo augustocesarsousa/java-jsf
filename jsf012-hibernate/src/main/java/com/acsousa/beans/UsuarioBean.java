@@ -10,6 +10,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ValueChangeEvent;
+import javax.faces.event.ValueChangeListener;
 
 import com.acsousa.daos.GenericDAO;
 import com.acsousa.daos.LoginDAO;
@@ -101,5 +103,10 @@ public class UsuarioBean {
 	
 	public void log() {
 		logger.log(Level.INFO, "Evento de ActionListener");
+	}
+	
+	public void changeValue(ValueChangeEvent evt) {
+		logger.log(Level.WARNING, "Valor antigo do sobrenome: " + evt.getOldValue());
+		logger.log(Level.WARNING, "Valor novo do sobrenome: " + evt.getNewValue());		
 	}
 }
