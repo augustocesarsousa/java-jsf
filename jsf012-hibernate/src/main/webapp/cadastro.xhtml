@@ -103,7 +103,7 @@
 			</h:selectManyCheckbox>		
 		</h:panelGrid>
 		<h:panelGroup>
-			<h:commandButton value="Salvar" action="#{usuarioBean.save}"/>
+			<h:commandButton value="Salvar" action="#{usuarioBean.save}" actionListener="#{usuarioBean.log}"/>
 			<h:commandButton value="Voltar" action="#{usuarioBean.redirectIndex}"/>
 		</h:panelGroup>
 	</h:form>

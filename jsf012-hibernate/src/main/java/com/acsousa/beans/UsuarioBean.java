@@ -2,6 +2,8 @@ package com.acsousa.beans;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -23,6 +25,7 @@ public class UsuarioBean {
 	private List<Usuario> usuarios = new ArrayList<Usuario>();
 	private FacesContext context = FacesContext.getCurrentInstance();
 	private ExternalContext externalContext = context.getExternalContext();
+	private Logger logger = Logger.getLogger(UsuarioBean.class.getName());
 	
 	public Usuario getUsuario() {
 		return usuario;
@@ -94,5 +97,9 @@ public class UsuarioBean {
 		FacesContext context = FacesContext.getCurrentInstance();
 		FacesMessage message = new FacesMessage(msg);
 		context.addMessage(null, message);
+	}
+	
+	public void log() {
+		logger.log(Level.INFO, "Evento de ActionListener");
 	}
 }
